@@ -1,0 +1,37 @@
+{% load static%}
+<!doctype>
+<html>
+    <head>
+        <title>Cooking Guide</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'cook/index.css'%}">
+    </head>
+
+    <body>
+
+        <header>
+
+            <div  id="header" align="center">
+
+                <h3>Cooking Guide</h3>
+
+                <!-- REDIRECTING TO "account" APP's "login" PAGE FROM "cook" APP "index" PAGE
+                     BY CALLING THE "login" METHOD PRESENT IN URL "/account/login"-->
+                <a class="button" href="/account/login"><button>Login</button></a>
+
+                <!-- REDIRECTING TO "account" APP's "register" PAGE FROM "cook" APP "index" PAGE
+                     BY CALLING THE "register" METHOD PRESENT IN URL "/account/register"-->
+                <a class="button" href="/account/register"><button>Register</button></a>
+            </div>
+
+        </header>
+    
+        <section>
+            <img src="{% static 'cook/images/index.jpg'%}">
+        </section>
+
+        <footer>
+            <!-- FOOTER SECTION -->
+        </footer>
+
+    </body>
+</html>

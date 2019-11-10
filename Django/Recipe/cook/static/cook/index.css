@@ -1,0 +1,42 @@
+body{
+    margin : 0px;
+    padding : 0px;
+}
+
+#header{
+    background : black;
+    opacity : 0.85;
+    height : 125px;
+    border : 0.1px solid black;
+}
+
+#header h3{
+    position : relative;
+    top : -40px;
+    font : bold 50px Tahoma;
+    color : white;
+}
+
+.button{
+    position : relative;
+    top : -75px;
+}
+
+section img{
+    position : relative;
+    left : 25%;
+    margin-top : 50px;
+    max-width : 50%;
+    max-height : 100%;
+    opacity: 0.75;
+}
+
+section{
+    align : right;
+}
+
+footer{
+    background : black;
+    height : 75px;
+    margin-top : 50px;
+}

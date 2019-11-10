@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+import scrapy
+from.. items import RecipesItem
+
+
+class QuotesSpider(scrapy.Spider):
+
+    name = 'recipes'
+    # allowed_domains = ['BojanaRecipes.com']
+    start_urls = ['https://www.allrecipes.com/recipes/233/world-cuisine/asian/indian/?page=1']
+
+    scrap_sub_page = False
+    first = True
+
+    def parse(self, response):
+
+        global title
+        item = RecipesItem()
+
+        if QuotesSpider.scrap_sub_page:
+
+            ingredients = response.css('ul li::text').extract()
+            procedure = response.css('.author-born-location::text').extract()
+
+            item['title'] = title
+            item['ingredients'] = ingredients
+            item['procedure'] = procedure
+
+            yield item
+
+        if QuotesSpider.first:
+
+            QuotesSpider.first = False
+            recipe_list = response.css('.fixed-recipe-card')
+
+            for recipe in recipe_list:
+                title = recipe.css('.fixed-recipe-card a').xpath('@data-name').extract()
+                url = recipe.css('.entry-title a').xpath("@href").extract()
+                next_page = url[0]
+                QuotesSpider.scrap_sub_page = True
+                yield response.follow(next_page, callback=self.parse)

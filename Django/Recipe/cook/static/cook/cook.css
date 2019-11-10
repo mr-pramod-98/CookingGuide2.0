@@ -1,0 +1,103 @@
+#form{
+    background : #808080;
+    padding : 10px;
+}
+
+#form h3{
+    float : right;
+    margin : 0px;
+    color : white;
+}
+
+.content{
+    /* top-left corner, top-right corner, bottom-right corner, bottom-left corner */
+    border-radius : 10px 10px 10px 10px;
+    margin : 50px 70px 0px 70px;
+    box-shadow : 3px 3px 10px black;
+}
+
+.title{
+    padding : 10px;
+    border-radius : 10px 10px 0px 0px;
+    font : bold 20px Tahoma;
+    background : black;
+    color : white;
+}
+
+.ingredients{
+    /* top, right, bottom, left */
+    padding : 10px 20px 10px 20px;
+    background-color : #EA5E3D;
+    color : white;
+    font-size : 21.6px;
+    font-size : 1.2rem;
+    max-height : 300px;
+    overflow-x: auto;
+    scrollbar-color : white #EA5E3D;
+    scrollbar-width : thin;
+}
+
+.directions{
+    /* top, right, bottom, left */
+    padding : 10px 20px 10px 20px;
+    /* top-left corner, top-right corner, bottom-right corner, bottom-left corner */
+    border-radius : 0px 0px 15px 15px;
+    background : white;
+    color : #EA5E3D;
+    font-size : 21.6px;
+    font-size : 1.2rem;
+    max-height : 300px;
+    overflow-x: auto;
+    scrollbar-color: #EA5E3D white;
+    scrollbar-width : thin;
+}
+
+#time{
+    display : inline;
+    font-size : 10px;
+    color : #808080;
+}
+
+hr{
+    margin : 0px;
+    padding : opx;
+    color : white;
+}
+
+.button{
+    position : relative;
+    top : -120px;
+    left : 5%;
+}
+
+#delete button{
+    border : 1px solid #808080;
+    background-color : #808080;
+    color : white;
+    border-radius : 15px;
+    height : 25px;
+}
+
+#delete button:hover{
+    background-color : white;
+    color : red;
+}
+
+#delete{
+    float : right;
+}
+
+#deleteAccount button{
+    position : relative;
+    top : -148px;
+    left : 42%;
+    width : 100px;
+    height : 100px;
+}
+
+#deleteAccount button:hover{
+    border-width : 0px;
+    border-radius : 5px;
+    background-color : white;
+    color : red;
+}

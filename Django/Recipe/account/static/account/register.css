@@ -1,0 +1,28 @@
+#messages{
+    height : 40px;
+}
+
+#messages h3{
+    text-align : center;
+    font : 20px bold Tahoma;
+    color : red;
+}
+
+#form{
+    position : relative;
+    top : 60px;
+    left : 40%;
+    width : 250px;
+    padding : 10px;
+    border : 2px solid black;
+    border-radius : 10px;
+}
+
+li{
+    font : bold 15px Tahoma;
+    list-style : none;
+}
+
+footer{
+    margin-top : 170px;
+}

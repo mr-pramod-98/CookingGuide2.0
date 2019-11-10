@@ -1,0 +1,81 @@
+{% load static%}
+<!doctype>
+<html>
+    <head>
+        <title>Cooking Guide</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'cook/index.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cook/cook.css'%}">
+    </head>
+
+    <body>
+
+        <header>
+
+            <div  id="header" align="center">
+
+                <h3>Cooking Guide</h3>
+
+                <!-- SHOW "logout" BUTTON WHEN USER IS LOGGED-IN -->
+                {% if user.is_authenticated %}
+
+                <!-- REDIRECTING TO "cook" APP's "index" PAGE FROM "cook" APP's "cook_guide" PAGE
+                     BY CALLING THE "logout" METHOD PRESENT IN URL "/account/logout"-->
+                <a class="button" href="/account/logout"><button>Logout</button></a>
+                <a id="deleteAccount" href="/cook_guide/{{user.username}}/delete_account"><button>Delete Account</button></a>
+
+                {% endif %}
+
+            </div>
+
+        </header>
+
+        <section>
+
+            <!-- SHOW THE CRAWL BAR WHEN USER IS LOGGED-IN -->
+            {% if user.is_authenticated %}
+
+            <form id="form" action="/cook_guide/{{user.username}}/" method="post">
+                {% csrf_token%}
+
+                <input type="text" name="item name" placeholder="Surprise Me!">
+                <input type="submit" value="Crawl">
+                <h3>Hello, {{user.username}}</h3>
+            </form>
+
+            {% endif %}
+
+            {% for recipes in cooking_recipes %}
+            <div class="content">
+
+                <div class="title">
+                    {{recipes.title}}
+
+                    <!-- DISPLAYING TIME TO CRAWLING -->
+                    <div id="time">
+                        ({{recipes.time}})
+                    </div>
+
+                    <!-- SHOW "delete(X)" BUTTON WHEN USER IS LOGGED-IN -->
+                    {% if user.is_authenticated %}
+                        <a id="delete" href="/cook_guide/{{user.username}}/delete/{{recipes.title}}/"><button>X</button></a>
+                    {% endif %}
+
+                </div>
+                <!-- ADDING HORIZONTAL LINE -->
+                <hr>
+                <div class="ingredients">{{recipes.ingredients|linebreaksbr}}</div>
+                <!-- ADDING HORIZONTAL LINE -->
+                <hr>
+                <div class="directions">{{recipes.directions|linebreaksbr}}</div>
+
+            </div>
+            {% endfor %}
+
+        </section>
+
+        <footer>
+            <!-- FOOTER SECTION -->
+        </footer>
+
+    </body>
+</html>

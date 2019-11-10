@@ -1,0 +1,63 @@
+{% load static%}
+<!doctype>
+<html>
+
+<head>
+    <title>Cooking Guide</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cook/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/register.css'%}">
+</head>
+
+<body>
+
+    <header>
+
+            <div  id="header" align="center">
+
+                <h3>Cooking Guide</h3>
+                <!-- REDIRECTING TO "account" APP's "login" PAGE FROM "account" APP's "register" PAGE
+                     BY CALLING THE "logout" METHOD PRESENT IN URL "/account/login"-->
+                <a class="button" href="/account/login"><button>Login</button></a>
+
+            </div>
+
+    </header>
+
+    <section>
+
+        <div id="messages">
+            <!-- PRINTING ERROR MESSAGE -->
+            {% for message in messages %}
+
+            <h3> {{message}} </h3>
+
+            {% endfor %}
+        </div>
+
+        <form id="form" action="/account/register/" method="post">
+            {% csrf_token%}
+
+            <li>First Name</li>
+            <input type="text" name="first_name" placeholder="First Name"><br><br>
+            <li>Last Name</li>
+            <input type="text" name="last_name" placeholder="Last Name"><br><br>
+            <li>Username</li>
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <li>Email ID</li>
+            <input type="email" name="email" placeholder="Email Address">
+            <li>Password</li>
+            <input type="password" name="password" placeholder="Password"><br><br>
+            <li>Confirm Password</li>
+            <input type="password" name="password_conf" placeholder="Confirm Password"><br><br>
+            <input type="submit" value="submit">
+
+        </form>
+
+    </section>
+
+    <footer>
+        <!-- FOOTER SECTION -->
+    </footer>
+
+</body>
+</html>

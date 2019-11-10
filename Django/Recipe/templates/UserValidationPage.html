@@ -1,0 +1,50 @@
+{% load static%}
+<!doctype>
+<html>
+
+<head>
+    <title>Cooking Guide</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cook/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/register.css'%}">
+</head>
+
+<body>
+
+    <header>
+
+            <div  id="header" align="center">
+
+                <h3>Cooking Guide</h3>
+
+            </div>
+
+    </header>
+
+    <section>
+
+        <div id="messages">
+            <!-- PRINTING ERROR MESSAGE -->
+            {% for message in messages %}
+
+            <h3> {{message}} </h3>
+
+            {% endfor %}
+        </div>
+
+        <form id="form" action="/account/userValidation/{{username}}/{{email}}" method="post">
+            {% csrf_token%}
+
+            <p>Enter the OTP sent to {{email}}</p>
+            <input type="password" name="OTP" placeholder="Enter OTP"><br><br>
+            <input type="submit" value="submit">
+
+        </form>
+
+    </section>
+
+    <footer>
+        <!-- FOOTER SECTION -->
+    </footer>
+
+</body>
+</html>
